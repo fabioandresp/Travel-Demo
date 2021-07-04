@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroServices", "MicroServices", "{7448751C-5058-4F82-950E-FB5AA43021E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{813E5AA8-9B12-45B7-A7F9-8F0B402770E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{D1C5F724-DB9F-485B-8BD0-EF0801728896}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{4645A1C7-BECC-4DE0-9639-D6AA9C2EDA71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "..\Authentication\Authentication.csproj", "{238F8D57-1CC9-4FF9-893A-3D26F764D951}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{238F8D57-1CC9-4FF9-893A-3D26F764D951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{238F8D57-1CC9-4FF9-893A-3D26F764D951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{238F8D57-1CC9-4FF9-893A-3D26F764D951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{238F8D57-1CC9-4FF9-893A-3D26F764D951}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{813E5AA8-9B12-45B7-A7F9-8F0B402770E7} = {7448751C-5058-4F82-950E-FB5AA43021E0}
+		{D1C5F724-DB9F-485B-8BD0-EF0801728896} = {7448751C-5058-4F82-950E-FB5AA43021E0}
+		{238F8D57-1CC9-4FF9-893A-3D26F764D951} = {813E5AA8-9B12-45B7-A7F9-8F0B402770E7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7918AC02-00AA-4770-BDF4-32EEA10FAFF0}
+	EndGlobalSection
+EndGlobal
