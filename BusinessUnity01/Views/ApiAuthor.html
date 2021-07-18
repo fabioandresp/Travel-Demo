@@ -1,0 +1,75 @@
+﻿API V1
+
+State-less Services.
+
+-------------------------------------------------------------------------------------
+1. Autor/Listar
+Este servicio lista a todos los autores. usa el texto pattern para buscar dentro de todos sus campos con una búsqueda inclusiva,
+es decir cualquier conicidencia en cualquier campo es señalada.
+
+[1]Ejemplo: http://localhost:5000/Autor/Listar
+
+[2]Ejemplo: http://localhost:5000/Autor/Listar?pattern=Gabriel
+parámetros usados:
+ pattern={w+}
+
+-------------------------------------------------------------------------------------
+
+2. Autor/Mostrar
+Este servicio se encarga de obtener un autor mediante su Id.
+parámetros usados:
+ Nombre del parámtro: id
+ pattern={d+}
+[1]Ejemplo: http://localhost:5000/Autor/Mostrar?id=5
+
+-------------------------------------------------------------------------------------
+
+
+
+3.1 Autor/Crear [Método GET,POST. Se recomienda PUT]
+Este servicio se encarga de crear un nuevo registro usando un objeto de tipo JSON que mapea las propiedades.
+parámetros usados:
+ Nombre del parámtro: id
+ pattern={d+}
+[1]Ejemplo: http://localhost:5000/Autor/Crear
+
+3.2 Autor/Actualizar [Método GET,POST. Se recomienda PUT]
+Este servicio se encarga de actualizar un nuevo registro usando un objeto de tipo JSON que mapea las propiedades, sí la propiedad no es establecida se tomará el valor anterior.
+parámetros usados:
+ Nombre del parámtro: id
+ pattern={d+}
+[1]Ejemplo: http://localhost:5000/Autor/Actualizar
+
+-------------------------------------------------------------------------------------
+
+4. Autor/Eliminar [Método GET,POST. Se recomienda DELETE]
+Este servicio se encarga de eliminar un registro
+parámetros usados:
+ Nombre del parámtro: id
+ pattern={d+}
+[1]Ejemplo: http://localhost:5000/Autor/Eliminar?id=5
+
+-------------------------------------------------------------------------------------
+
+5  Crear Contenido de Prueba &Aacute; Truncar la tabla.
+
+5.1 Autor/Generar
+Ejemplo: http://localhost:5000/Autor/Generar
+
+5.2 Autor/Limpiar
+Ejemplo: http://localhost:5000/Autor/Limpiar
+
+-------------------------------------------------------------------------------------
+
+En caso de error Script para crear la tabla.
+
+Crear Tabla A nivel de SQL
+
+  DROP TABLE Author;
+
+  CREATE TABLE Author (
+    [Id]		INT IDENTITY(1,1) PRIMARY KEY,
+    [Name]		NVARCHAR(45) NOT NULL,
+    [LastName]	NVARCHAR(45) NOT NULL,
+	);
+

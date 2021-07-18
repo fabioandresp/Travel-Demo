@@ -1,0 +1,118 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>Instalación de la base de datos.</h1>
+
+<p>
+    Para Instalar esta prueba se debe crear una base de datos limpia en su servidor de base de datos SQlSERVER.
+</p>
+
+<p>
+    Se sugiere el nombre <b>travel</b>
+</p>
+<p>
+    Seguidamente dentro del proyecto se debe cambiar la cadena de conexión.
+</p>
+
+<p>
+    <img src="~/doc-01.png" />
+</p>
+
+<p>
+    Se debe editar la cadena de conexión use la siguiente línea como sugerencia.
+</p>
+
+<p>
+    Ejemplo 1:
+</p>
+<p>
+    <code>
+        "DefaultConnection": "Server=localhost\\MSSQLSERVER02;Database=<b>travel</b>;Trusted_Connection=True;MultipleActiveResultSets=true"
+    </code>
+</p>
+
+
+<p>
+    Ejemplo 2:
+</p>
+<p>
+    <code>
+        Server=localhost\\MSSQLSERVER02;Database=<b>travel</b>;User Id=<b>ijones</b>;Password=<b>clavedelusuario</b>;
+    </code>
+</p>
+
+<p>
+    Verifique que el tipo de usuario para acceder a la base de datos (Usuarios SQL o Autenticación Integrada por el S.O.) y solamente durante la instalación, verifique que el usuario tenga permisos para administrar la base de datos.
+</p>
+
+<p>
+    Para crear las tablas del esquema use las siguientes instrucciones.
+</p>
+
+<p>
+    1. Crear colección de Datos.
+</p>
+
+<p>
+    1.1 Crear entidad Editor.
+</p>
+<p>
+    <code>
+        CREATE TABLE Issuer (
+        [Id]		INT IDENTITY(1,1) PRIMARY KEY,
+        [Name]		NVARCHAR(45) NOT NULL,
+        [Facility]	NVARCHAR(45) NOT NULL
+        );
+    </code>
+</p>
+
+<p>
+    1.2 Crear entidad Autor.
+</p>
+<p>
+    <code>
+        CREATE TABLE Author (
+        [Id]		INT IDENTITY(1,1) PRIMARY KEY,
+        [Name]		NVARCHAR(45) NOT NULL,
+        [LastName]	NVARCHAR(45) NOT NULL
+        );
+    </code>
+</p>
+
+
+<p>
+    1.3 Crear entidad Libro.
+</p>
+<p>
+
+    <code>
+        CREATE TABLE Book (
+        [ISBN]        INT PRIMARY KEY,
+        [Issuer_FK]   INT NOT NULL,
+        [Title]       NVARCHAR(45) NOT NULL,
+        [Synapsis]    NVARCHAR(45) NOT NULL,
+        [N_Pages]     NVARCHAR(45) NOT NULL
+        );
+    </code>
+</p>
+
+
+<p>
+    1.3 Crear entidad Libro.
+</p>
+<p>
+
+    <code>
+        CREATE TABLE Author_Book_Relation (
+        [Author_ID]   INT NOT NULL,
+        [Book_ISBN]   INT NOT NULL
+        );
+    </code>
+</p>
+
+<p>
+    2. Crear Índices y llaves foráneas.
+</p>
+

@@ -1,0 +1,86 @@
+﻿@page
+@model Travel.View.Pages.BuscarAutorModel
+@{
+}
+
+<h1>
+    Autores
+</h1>
+
+<p>
+    <a href="https://localhost:5001/Autor" >API/REST de Autores</a>
+</p>
+
+<script>
+    function search()
+    {
+        let pattern = document.getElementById('author_pattern').value;
+
+        var jqxhr = $.post("/Proxy/Autor/Listar?pattern=" + pattern, function (response)
+        {
+            try {
+                let hnd = JSON.parse(response);
+                let tab = document.getElementById('results');
+                tab.innerHTML = "";
+                for(let item in hnd) {
+                    try {
+                        let itemKey = hnd[item];
+                        let itemValue = itemKey.Id + " | " + itemKey.Name + " " + itemKey.LastName;
+                        let iRecord = document.createElement("p");
+                        iRecord.innerHTML = itemValue;
+                        console.log(itemValue);
+                        tab.append(iRecord);
+                    } catch (e) { console.log(e); }
+                    
+                }
+
+            } catch (e) {
+                alert('No puedo ser realizada la consulta.');
+            }
+        })
+            .done(function () {
+                
+            })
+            .fail(function () {
+                
+            })
+            .always(function () {
+                
+            });
+
+    }
+</script>
+
+<div>
+    <table width="100%">
+        <tr>
+            <td>
+                La busqueda se realizará usando el API Rest / Autor/Listar, la cual busca inclusivamente en todos los campos, es decir haciendo una concatenación de ||
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sí no hay datos, se puede usar el siguente enlace <a href="https://localhost:5001/Autor/Generar"> https://localhost:5001/Autor/Generar</a> para crear un conjunto de datos básicos.
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="text" style="width:75%" id="author_pattern" /> <button onclick="search()"> Buscar Autores</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div id="results">
+
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
