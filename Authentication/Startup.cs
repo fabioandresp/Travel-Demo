@@ -45,11 +45,8 @@ namespace Travel.Security
 
             App.UseHttpsRedirection();
             App.UseStaticFiles();
-
             App.UseHttpsRedirection();
-
             App.UseRouting();
-
             App.UseAuthorization();
 
             //Complemento para mapear las rutas de las anotaciones, esto se hace por cada clase en runtime.

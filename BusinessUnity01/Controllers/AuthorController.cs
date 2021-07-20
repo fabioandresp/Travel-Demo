@@ -104,6 +104,7 @@ namespace Travel.Controllers
         public ActionResult Index()
         {
             if (!SecureSession<TravelController>("API Description")) return Unauthorized();
+
             return Load( Path.Combine("Views","ApiAuthor.html") , 200 );
         }
 

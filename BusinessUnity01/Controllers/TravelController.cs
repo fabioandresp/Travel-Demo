@@ -37,7 +37,9 @@ namespace Travel.Controllers
             {
                 string url = "https://localhost:5010/Autorizacion";
                 IDictionary<string, object> jsonAuth = null;
-                
+
+                string response = "";
+
                 Debug("Authorization Request", url);
                 try
                 {
@@ -62,10 +64,10 @@ namespace Travel.Controllers
 
                         using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
                         {
-                            using (System.IO.StreamReader sr = new System.IO.StreamReader(s))
+                            using (System.IO.StreamReader sr = new(s))
                             {
-                                string value = sr.ReadToEnd();
-                                jsonAuth = Travel.Core.Utilities.TravelUtilities.Deserializate<Dictionary<string, object>>(value);
+                                response = sr.ReadToEnd();
+                                jsonAuth = Travel.Core.Utilities.TravelUtilities.Deserializate<Dictionary<string, object>>(response);
                             }
                         }
                     }
@@ -83,7 +85,8 @@ namespace Travel.Controllers
                         {
                             //Autorización es exitosa.
                             Debug("Autorización OK según MS de Seguridad.", url);
-                            return true;
+                            Debug("json",response);
+                        return true;
                         }
                         else
                         {
